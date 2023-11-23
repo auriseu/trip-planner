@@ -6,7 +6,7 @@
 * To start application run command `mvn spring-boot:run`
 
 ### Usage
-* Application preloads data to in memory H2 database from [scchema.sql](src/main/resources/schema.sql) and [data.sql](src/main/resources/data.sql) 
+* Application preloads data to in memory H2 database from [schema.sql](src/main/resources/schema.sql) and [data.sql](src/main/resources/data.sql) 
 * You can test API requests in file [requests.http](src/http/requests.http) or use [swagger](http://localhost:8080/swagger-ui/index.html) 
 * API accepts query parameters:
   * kilometers, if not provided default value of 20 is used
@@ -15,7 +15,8 @@
 * API returns trip plan what items you have to take and what amount
 
 ### Todo
-
+* Security
+* API for items CRUD operations
 
 ### Original task 
 
