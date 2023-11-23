@@ -1,0 +1,24 @@
+
+### Calculate trip by default kilometers and default days, current month
+GET http://localhost:8080/trip/items
+
+### Calculate trip by kilometers and default days, current month
+GET http://localhost:8080/trip/items?kilometers=50
+
+### Calculate trip by kilometers and days, curent month
+GET http://localhost:8080/trip/items?kilometers=100&days=3
+
+### Calculate trip by kilometers, days and month
+GET http://localhost:8080/trip/items?kilometers=100&days=3&month=7
+
+### Invalid month
+GET http://localhost:8080/trip/items?kilometers=100&days=3&month=13
+
+### Invalid kilometers
+GET http://localhost:8080/trip/items?kilometers=0&days=1
+
+### Invalid days
+GET http://localhost:8080/trip/items?kilometers=100&days=0
+
+
+
