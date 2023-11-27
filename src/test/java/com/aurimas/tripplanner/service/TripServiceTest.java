@@ -61,32 +61,18 @@ class TripServiceTest {
         List<ItemToTake> items = tripPlan.getItems();
         assertThat(items, hasSize(4));
 
-        // Backpack
-        Optional<ItemToTake> backpack = items.stream()
-                .filter(item -> "Backpack".equals(item.getItemName()))
-                .findFirst();
-        assertThat(backpack.isPresent(), equalTo(true));
-        assertThat(backpack.get().getAmount(), equalTo(1));
+        assertItemFoundAndAmount(items, "Backpack", 1);
+        assertItemFoundAndAmount(items, "Tent", 1);
+        assertItemFoundAndAmount(items, "Portion of food", 6);
+        assertItemFoundAndAmount(items, "Sunscreen", 1);
+    }
 
-        // Tent
-        Optional<ItemToTake> tent = items.stream()
-                .filter(item -> "Tent".equals(item.getItemName()))
+    private static void assertItemFoundAndAmount(List<ItemToTake> items, String itemName, int amount) {
+        Optional<ItemToTake> itemFound = items.stream()
+                .filter(item -> itemName.equals(item.getItemName()))
                 .findFirst();
-        assertThat(tent.isPresent(), equalTo(true));
-        assertThat(tent.get().getAmount(), equalTo(1));
 
-        // Portion of food
-        Optional<ItemToTake> food = items.stream()
-                .filter(item -> "Portion of food".equals(item.getItemName()))
-                .findFirst();
-        assertThat(food.isPresent(), equalTo(true));
-        assertThat(food.get().getAmount(), equalTo(6));
-
-        // Sunscreen
-        Optional<ItemToTake> sunscreen = items.stream()
-                .filter(item -> "Sunscreen".equals(item.getItemName()))
-                .findFirst();
-        assertThat(sunscreen.isPresent(), equalTo(true));
-        assertThat(sunscreen.get().getAmount(), equalTo(1));
+        assertThat(itemFound.isPresent(), equalTo(true));
+        assertThat(itemFound.get().getAmount(), equalTo(amount));
     }
 }

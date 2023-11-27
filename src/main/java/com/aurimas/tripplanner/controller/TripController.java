@@ -46,8 +46,7 @@ public class TripController {
                     }
 
                     return Month.of(m);
-                })
-                .orElse(LocalDate.now().getMonth());
+                }).orElseGet(() -> LocalDate.now().getMonth());
 
         int kilometersValidated = Optional.ofNullable(kilometers)
                 .map(k -> {
